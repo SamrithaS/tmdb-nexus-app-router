@@ -1,0 +1,56 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build:next": {
+			"dependsOn": ["lint:eslint", "lint:types"],
+			"outputs": [".next/**", "!.next/cache/**"],
+			"env": [
+				"NEXT_BUILD_ENV_*",
+				"NEXT_PUBLIC_*",
+				"API_URL",
+				"APP_API_KEY",
+				"REVALIDATE_TOKEN",
+				"DRAFT_SECRET_TOKEN",
+				"TMDB_ACCESS_TOKEN"
+			]
+		},
+		"test": {},
+		"clean": {},
+		"lint:eslint": {
+			"outputs": [".eslintcache"]
+		},
+		"lint:types": {},
+		"lint:css": {
+			"inputs": ["**/*.css"],
+			"outputs": [".stylelintcache"]
+		},
+		"lint:md": {
+			"inputs": ["**/*.md", ".github/**/*.md"]
+		},
+		"lint:knip": {
+			"inputs": ["src/pages/**/*.{js,jsx,ts,tsx}"]
+		},
+		"lint:package-json": {
+			"inputs": ["package.json"]
+		},
+		"lint:prettier": {
+			"outputs": [".prettiercache"]
+		},
+		"lint:spelling": {},
+		"format:css": {
+			"inputs": ["**/*.css"],
+			"outputs": [".stylelintcache"]
+		},
+		"format:md": {
+			"inputs": ["**/*.md", ".github/**/*.md"]
+		},
+		"format:prettier": {
+			"dependsOn": ["format:css", "format:md"],
+			"outputs": [".prettiercache"]
+		},
+		"format:eslint": {
+			"dependsOn": ["format:prettier"],
+			"outputs": [".eslintcache"]
+		}
+	}
+}

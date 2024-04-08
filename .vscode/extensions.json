@@ -1,0 +1,22 @@
+{
+	"recommendations": [
+		// Prettier is an opinionated code formatter.
+		"esbenp.prettier-vscode",
+		// ESLint, Find and fix problems in your JavaScript code
+		"dbaeumer.vscode-eslint",
+		"DavidAnson.vscode-markdownlint",
+		"streetsidesoftware.code-spell-checker",
+		// Frontend
+		"bradlc.vscode-tailwindcss",
+		"stylelint.vscode-stylelint",
+
+		// Optional
+		"vivaxy.vscode-conventional-commits",
+		"aaron-bond.better-comments",
+		"formulahendry.auto-close-tag",
+		"formulahendry.auto-rename-tag",
+		"christian-kohler.npm-intellisense",
+		"christian-kohler.path-intellisense",
+		"mattpocock.ts-error-translator"
+	]
+}

@@ -1,0 +1,34 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"allowJs": true,
+		"downlevelIteration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"noUnusedParameters": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES5",
+		"typeRoots": ["./node_modules/@types", "@types", "./env/environment.d.ts"],
+		"plugins": [
+			{
+				"name": "next"
+			}
+		]
+	},
+	"exclude": [
+		"node_modules",
+		".next",
+		"sentry.client.config.ts",
+		"sentry.edge.config.ts"
+	],
+	"include": ["./**/*", ".next/types/**/*.ts"]
+}

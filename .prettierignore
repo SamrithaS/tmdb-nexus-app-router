@@ -1,0 +1,14 @@
+# Node.js
+.npmrc
+.nvmrc
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Extras(if any)
+CHANGELOG.md
+release-it/**/*.hbs
+release-it/remote-commits.json
+public

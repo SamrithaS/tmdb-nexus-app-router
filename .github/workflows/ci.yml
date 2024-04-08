@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request: ~
+
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure Git
+        uses: ./.github/actions/git-config
+
+      - name: ♻️ Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: 📥 Pnpm install
+        uses: ./.github/actions/pnpm-install
+
+      - name: 🔬 Linter
+        run: pnpm exec turbo lint:package-json lint:css lint:md lint:prettier lint:eslint lint:types lint:knip lint:spelling test
